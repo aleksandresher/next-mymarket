@@ -1,5 +1,5 @@
 import { connectToDB } from "@/utils/database";
-import Category from "@models/Category";
+import Category from "../../../../../models/Category";
 
 export const POST = async (request) => {
   const { data } = await request.json();
@@ -9,6 +9,8 @@ export const POST = async (request) => {
 
     let category = new Category({
       title: data.title,
+      subcategories: data.subcategories,
+      image: data.image,
     });
 
     await category.save();

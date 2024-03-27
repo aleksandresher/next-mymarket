@@ -1,9 +1,11 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
+import { CldUploadWidget } from "next-cloudinary";
+import { useForm, useFieldArray } from "react-hook-form";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
+import ImageUploadWidget from "./ImageUploader";
 import {
   Dialog,
   DialogContent,
@@ -16,16 +18,42 @@ import {
 } from "../components/ui/dialog";
 
 type FormValues = {
-  title: String;
+  title: string;
+  image: string;
+  subcategories: {
+    name: string;
+  }[];
 };
+
+<CldUploadWidget
+  uploadPreset="<Your Upload Preset>"
+  onSuccess={(result, { widget }) => {
+    console.log(result?.info);
+    widget.close();
+  }}
+>
+  {({ open }) => {
+    function handleOnClick() {
+      console.log(undefined);
+      open();
+    }
+    return <button onClick={handleOnClick}>Upload an Image</button>;
+  }}
+</CldUploadWidget>;
 
 export default function CategoryCreator() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
     reset,
   } = useForm<FormValues>();
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "subcategories",
+  });
 
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -50,8 +78,10 @@ export default function CategoryCreator() {
     },
   });
   const onSubmit = (formData: FormValues) => {
+    console.log(formData);
     mutation.mutate(formData);
   };
+
   return (
     <div>
       <Dialog>
@@ -80,6 +110,37 @@ export default function CategoryCreator() {
                 />
                 {errors.title?.message && <span>{errors.title.message}</span>}
               </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <label htmlFor="title" className="text-right">
+                  Image
+                </label>
+                <input
+                  className="p-2 w-[140px] rounded-[8px]"
+                  id="title"
+                  {...register("image", {
+                    required: "this field is required",
+                  })}
+                />
+                {errors.image?.message && <span>{errors.image.message}</span>}
+              </div>
+
+              <ul>
+                {fields.map((item, index) => (
+                  <li key={item.id}>
+                    <input
+                      {...register(`subcategories.${index}.name`, {
+                        required: true,
+                      })}
+                    />
+                    <button type="button" onClick={() => remove(index)}>
+                      Delete
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <button type="button" onClick={() => append({ name: "" })}>
+                Add Subcategory
+              </button>
             </div>
             <DialogFooter>
               <DialogClose
