@@ -5,7 +5,7 @@ import { CldUploadWidget } from "next-cloudinary";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
-import ImageUploadWidget from "./ImageUploader";
+
 import {
   Dialog,
   DialogContent,
@@ -24,22 +24,6 @@ type FormValues = {
     name: string;
   }[];
 };
-
-<CldUploadWidget
-  uploadPreset="<Your Upload Preset>"
-  onSuccess={(result, { widget }) => {
-    console.log(result?.info);
-    widget.close();
-  }}
->
-  {({ open }) => {
-    function handleOnClick() {
-      console.log(undefined);
-      open();
-    }
-    return <button onClick={handleOnClick}>Upload an Image</button>;
-  }}
-</CldUploadWidget>;
 
 export default function CategoryCreator() {
   const {
