@@ -106,7 +106,7 @@ export default function ProductCreator() {
                 {errors.title?.message && <span>{errors.title.message}</span>}
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="title" className="text-right">
+                <label htmlFor="image" className="text-right">
                   Image
                 </label>
                 <input
@@ -138,6 +138,7 @@ export default function ProductCreator() {
                   price
                 </label>
                 <input
+                  type="number"
                   className="p-2 w-[140px] rounded-[8px]"
                   id="price"
                   {...register("price", {
