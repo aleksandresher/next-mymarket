@@ -5,7 +5,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
-
+import { cn } from "@lib/utils";
+import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
@@ -17,31 +18,32 @@ import {
   DialogClose,
 } from "../components/ui/dialog";
 
-type MobileProductValues = {
+ export type MobileProductValues = {
   title: string;
   image: string;
   description: string;
   price: number;
   owner: string;
   place: string;
-  vipplus: boolean;
-  vip: boolean;
-  supervip: boolean;
+  vipplus: boolean | false;
+  vip: boolean | false;
+  supervip: boolean | false;
   brand: string;
   model: string;
   osversion: string;
-  selfcamera: string;
-  simnum: string;
+  selfcamera: number;
+  simnum: number;
   simtype: string;
-  published: Date;
-  screensize: string;
+  published: number;
+  screensize: number;
   screentype: string;
-  battery: string;
-  cameranum: string;
+  battery: number;
+  cameranum: number;
   features: string;
   os: string;
   internalmemory: number;
-  maincamera: string;
+  maincamera: number;
+  condition: string;
 };
 
 export default function ProductCreator() {
@@ -89,28 +91,24 @@ export default function ProductCreator() {
         <DialogContent className="w-full opacity-100 bg-[#c7f9cc]">
           <form onSubmit={handleSubmit(onSubmit)}>
             <DialogHeader>
-              <DialogTitle>add mobile</DialogTitle>
+              <DialogTitle>Add Mobile</DialogTitle>
             </DialogHeader>
             <div className="w-full grid grid-cols-3 gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="title" className="text-right">
-                  Title
-                </label>
+              <div className="w-full flex items-center gap-2">
+                <label htmlFor="title">Title</label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className="p-2  rounded-[8px] w-full"
                   id="title"
                   {...register("title", {
                     required: "this field is required",
                   })}
                 />
-                {errors.title?.message && <span>{errors.title.message}</span>}
+                {/* {errors.title?.message && <span>{errors.title.message}</span>} */}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="image" className="text-right">
-                  Image
-                </label>
+              <div className="flex items-center gap-2">
+                <label htmlFor="image">Image</label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className="w-full p-2  rounded-[8px]"
                   id="image"
                   {...register("image", {
                     required: "this field is required",
@@ -118,12 +116,10 @@ export default function ProductCreator() {
                 />
                 {errors.image?.message && <span>{errors.image.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="description" className="text-right">
-                  description
-                </label>
+              <div className="flex items-center gap-2">
+                <label htmlFor="description">Description</label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className="w-full p-2  rounded-[8px]"
                   id="description"
                   {...register("description", {
                     required: "this field is required",
@@ -133,13 +129,13 @@ export default function ProductCreator() {
                   <span>{errors.description.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="price" className="text-right">
-                  price
+                  Price
                 </label>
                 <input
                   type="number"
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="price"
                   {...register("price", {
                     required: "this field is required",
@@ -147,12 +143,12 @@ export default function ProductCreator() {
                 />
                 {errors.price?.message && <span>{errors.price.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="brand" className="text-right">
-                  brand
+                  Brand
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="brand"
                   {...register("brand", {
                     required: "this field is required",
@@ -160,12 +156,12 @@ export default function ProductCreator() {
                 />
                 {errors.brand?.message && <span>{errors.brand.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="model" className="text-right">
-                  model
+                  Model
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="model"
                   {...register("model", {
                     required: "this field is required",
@@ -173,12 +169,12 @@ export default function ProductCreator() {
                 />
                 {errors.model?.message && <span>{errors.model.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="osversion" className="text-right">
-                  osversion
+                  OS version
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="osversion"
                   {...register("osversion", {
                     required: "this field is required",
@@ -188,12 +184,13 @@ export default function ProductCreator() {
                   <span>{errors.osversion.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="selfcamera" className="text-right">
-                  selfcamera
+                  Self-camera
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2  rounded-[8px]"
                   id="selfcamera"
                   {...register("selfcamera", {
                     required: "this field is required",
@@ -203,12 +200,13 @@ export default function ProductCreator() {
                   <span>{errors.selfcamera.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="simnum" className="text-right">
-                  simnum
+                  Sim Number
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2 rounded-[8px]"
                   id="simnum"
                   {...register("simnum", {
                     required: "this field is required",
@@ -216,12 +214,13 @@ export default function ProductCreator() {
                 />
                 {errors.simnum?.message && <span>{errors.simnum.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="screensize" className="text-right">
-                  screensize
+                  Screensize
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2  rounded-[8px]"
                   id="screensize"
                   {...register("screensize", {
                     required: "this field is required",
@@ -231,12 +230,12 @@ export default function ProductCreator() {
                   <span>{errors.screensize.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="screentype" className="text-right">
-                  screentype
+                  Screentype
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="screentype"
                   {...register("screentype", {
                     required: "this field is required",
@@ -246,12 +245,13 @@ export default function ProductCreator() {
                   <span>{errors.screentype.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="battery" className="text-right">
-                  battery
+                  Battery
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2  rounded-[8px]"
                   id="battery"
                   {...register("battery", {
                     required: "this field is required",
@@ -261,12 +261,13 @@ export default function ProductCreator() {
                   <span>{errors.battery.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="cameranum" className="text-right">
-                  cameranum
+                  Cameranum
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2  rounded-[8px]"
                   id="cameranum"
                   {...register("cameranum", {
                     required: "this field is required",
@@ -276,12 +277,12 @@ export default function ProductCreator() {
                   <span>{errors.cameranum.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="features" className="text-right">
-                  features
+                  Features
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="features"
                   {...register("features", {
                     required: "this field is required",
@@ -291,12 +292,12 @@ export default function ProductCreator() {
                   <span>{errors.features.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="os" className="text-right">
-                  os
+                  OS
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="os"
                   {...register("os", {
                     required: "this field is required",
@@ -304,13 +305,13 @@ export default function ProductCreator() {
                 />
                 {errors.os?.message && <span>{errors.os.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="internalmemory" className="text-right">
-                  internalmemory
+                  Internalmemory
                 </label>
                 <input
                   type="number"
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="internalmemory"
                   {...register("internalmemory", {
                     required: "this field is required",
@@ -320,12 +321,13 @@ export default function ProductCreator() {
                   <span>{errors.internalmemory.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="maincamera" className="text-right">
-                  maincamera
+                  Maincamera
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2  rounded-[8px]"
                   id="maincamera"
                   {...register("maincamera", {
                     required: "this field is required",
@@ -335,58 +337,49 @@ export default function ProductCreator() {
                   <span>{errors.maincamera.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex w-1/4 bg-green-400 items-center gap-2 p-2">
                 <label htmlFor="supervip" className="text-right">
-                  supervip
+                  SUPER VIP
                 </label>
                 <input
                   type="checkbox"
-                  className="p-2 w-[140px] rounded-[8px]"
+                  defaultChecked={false}
+                  className=" p-2  rounded-[8px]"
                   id="supervip"
-                  {...register("supervip", {
-                    required: "this field is required",
-                  })}
+                  {...register("supervip")}
                 />
                 {errors.supervip?.message && (
                   <span>{errors.supervip.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="vipplus" className="text-right">
-                  vipplus
-                </label>
+              <div className="flex w-1/4 items-center gap-2 bg-green-400 p-2 rounded-lg">
+                <label htmlFor="vipplus">VIP+</label>
                 <input
                   type="checkbox"
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className="p-2  rounded-[8px]"
                   id="vipplus"
-                  {...register("vipplus", {
-                    required: "this field is required",
-                  })}
+                  {...register("vipplus")}
                 />
                 {errors.vipplus?.message && (
                   <span>{errors.vipplus.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="vip" className="text-right">
-                  vip
-                </label>
+              <div className="flex w-1/4  items-center gap-2 bg-green-400 rounded-lg p-2">
+                <label htmlFor="vip">VIP</label>
                 <input
                   type="checkbox"
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className="p-2  rounded-[8px]"
                   id="vip"
-                  {...register("vip", {
-                    required: "this field is required",
-                  })}
+                  {...register("vip")}
                 />
                 {errors.vip?.message && <span>{errors.vip.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="owner" className="text-right">
-                  owner
+                  Owner
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className="p-2 w-full  rounded-[8px]"
                   id="owner"
                   {...register("owner", {
                     required: "this field is required",
@@ -394,12 +387,12 @@ export default function ProductCreator() {
                 />
                 {errors.owner?.message && <span>{errors.owner.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="place" className="text-right">
-                  place
+                  Place
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="place"
                   {...register("place", {
                     required: "this field is required",
@@ -407,13 +400,13 @@ export default function ProductCreator() {
                 />
                 {errors.place?.message && <span>{errors.place.message}</span>}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="published" className="text-right">
-                  published
+                  Published year
                 </label>
                 <input
-                  type="date"
-                  className="p-2 w-[140px] rounded-[8px]"
+                  type="number"
+                  className=" w-full p-2  rounded-[8px]"
                   id="published"
                   {...register("published", {
                     required: "this field is required",
@@ -423,12 +416,12 @@ export default function ProductCreator() {
                   <span>{errors.published.message}</span>
                 )}
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-2">
                 <label htmlFor="plsimtype" className="text-right">
-                  simtype
+                  Simtype
                 </label>
                 <input
-                  className="p-2 w-[140px] rounded-[8px]"
+                  className=" w-full p-2  rounded-[8px]"
                   id="simtype"
                   {...register("simtype", {
                     required: "this field is required",
@@ -438,14 +431,14 @@ export default function ProductCreator() {
                   <span>{errors.simtype.message}</span>
                 )}
               </div>
+              <select {...register("condition")}>
+                <option value="">Select...</option>
+                <option value="new">New</option>
+                <option value="used">Used</option>
+              </select>
             </div>
             <DialogFooter>
-              <DialogClose
-                type="submit"
-                className="bg-green-400 rounded-full p-2 uppercase"
-              >
-                submit
-              </DialogClose>
+              <Button type="submit">Confirm</Button>
             </DialogFooter>
           </form>
         </DialogContent>

@@ -13,19 +13,19 @@ interface IMobile {
   brand: string;
   model: string;
   osversion: string;
-  selfcamera: string;
-  simnum: string;
+  selfcamera: number;
+  simnum: number;
   simtype: string;
-  published: Date;
-  screensize: string;
+  published: number;
+  screensize: number;
   screentype: string;
-  battery: string;
-  cameranum: string;
+  battery: number;
+  cameranum: number;
   features: string;
   os: string;
   internalmemory: number;
-  maincamera: string;
-  createdAt: Date;
+  maincamera: number;
+  condition: string;
 }
 
 const mobileschema = new Schema<IMobile>(
@@ -42,19 +42,19 @@ const mobileschema = new Schema<IMobile>(
     brand: { type: String, required: true },
     model: { type: String, required: true },
     osversion: { type: String, required: true },
-    selfcamera: { type: String, required: true },
-    simnum: { type: String, required: true },
+    selfcamera: { type: Number, required: true },
+    simnum: { type: Number, required: true },
     simtype: { type: String, required: true },
-    published: { type: Date, required: true },
-    screensize: { type: String, required: true },
+    published: { type: Number, required: true },
+    screensize: { type: Number, required: true },
     screentype: { type: String, required: true },
-    battery: { type: String, required: true },
-    cameranum: { type: String, required: true },
+    battery: { type: Number, required: true },
+    cameranum: { type: Number, required: true },
     features: { type: String, required: true },
     os: { type: String, required: true },
     internalmemory: { type: Number, required: true },
-    maincamera: { type: String, required: true },
-    createdAt: { type: Date, default: new Date() },
+    maincamera: { type: Number, required: true },
+    condition: { type: String, required: true },
   },
   { timestamps: true }
 );

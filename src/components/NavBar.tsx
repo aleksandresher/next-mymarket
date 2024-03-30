@@ -15,7 +15,7 @@ interface Provider {
 export default function NavBar() {
   const { data: session } = useSession();
   const [providers, setProviders] = useState<Provider[]>([]);
-  const pathname = usePathname;
+  const pathname = usePathname();
 
   useEffect(() => {
     (async () => {
@@ -27,11 +27,17 @@ export default function NavBar() {
     })();
   }, []);
 
+  console.log(pathname);
+
   useEffect(() => {
-    if (session?.user) {
+    if (
+      session?.user &&
+      !pathname.startsWith("/admin/dashboard") &&
+      pathname !== "/"
+    ) {
       redirect("/admin/dashboard");
     }
-  }, [session]);
+  }, [session, pathname]);
 
   async function logOutCustom() {
     try {
