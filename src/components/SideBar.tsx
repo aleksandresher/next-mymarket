@@ -44,14 +44,24 @@ export default function SideBar() {
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>მდებარეობა</AccordionTrigger>
-        <AccordionContent className="z-30">
+        <AccordionContent className="">
           <LocationSelect />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
         <AccordionTrigger>ყიდვის ფორმა</AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+          <div className="flex flex-col gap-2">
+            <button className="w-fit border-2 p-2 border-[#e6e9ee] rounded-[10px]">
+              მე შევხვდები
+            </button>
+            <button className="w-fit border-2 p-2 border-[#e6e9ee] rounded-[10px]">
+              საკურიეროს დახმარებით
+            </button>
+            <button className="w-fit border-2 p-2 border-[#e6e9ee] rounded-[10px]">
+              ორივე
+            </button>
+          </div>
         </AccordionContent>
       </AccordionItem>
     </Accordion>

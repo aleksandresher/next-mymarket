@@ -13,11 +13,11 @@ import {
 export function LocationSelect() {
   return (
     <Select>
-      <SelectTrigger className="w-[200px] p-4 z-10 border-2 border-[#a3c4df] rounded-[8px]">
+      <SelectTrigger className="w-[205px]   border-2 border-[#a3c4df] rounded-[8px]">
         <SelectValue placeholder="აირჩიე მდებარეობა" />
       </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
+      <SelectContent className="border-2 border-[#abb0b9] p-0 rounded-[4px]">
+        <SelectGroup className="z-60 bg-slate-100 ">
           <SelectItem value="თბილისი">თბილისი</SelectItem>
           <SelectItem value="აბაშა">აბაშა</SelectItem>
           <SelectItem value="ამბროლაური">ამბროლაური</SelectItem>

@@ -2,6 +2,7 @@ import { loadMobiles } from "@lib/load-mobiles";
 import { MobileProductValues } from "@components/ProductCreator";
 import { useQuery } from "@tanstack/react-query";
 import SingleMobile from "@components/SingleMobile";
+import SpecificationTable from "@components/SpecificationTable";
 
 type MobileProps = {
   _id: number;
@@ -45,7 +46,7 @@ export async function generateStaticParams() {
 
 export default function Page({ params }: { params: { id: string } }) {
   return (
-    <div>
+    <div className=" bg-[#f1f3f6]">
       <SingleMobile mobileId={params.id} />
     </div>
   );
