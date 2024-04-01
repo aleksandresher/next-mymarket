@@ -3,6 +3,7 @@ import { MobileProductValues } from "@components/data-creators/ProductCreator";
 import { useQuery } from "@tanstack/react-query";
 import SingleMobile from "@components/singleMobile/SingleMobile";
 import SpecificationTable from "@components/singleMobile/SpecificationTable";
+import Partners from "@components/Partners";
 
 type MobileProps = {
   _id: number;
@@ -46,8 +47,9 @@ export async function generateStaticParams() {
 
 export default function Page({ params }: { params: { id: string } }) {
   return (
-    <div className=" bg-[#f1f3f6]">
+    <div className=" bg-[#f1f3f6] flex flex-col items-center">
       <SingleMobile mobileId={params.id} />
+      <Partners />
     </div>
   );
 }
