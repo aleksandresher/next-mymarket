@@ -4,9 +4,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useForm, useFieldArray } from "react-hook-form";
 import { useState } from "react";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "../ui/use-toast";
 import { cn } from "@lib/utils";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import {
   Dialog,
   DialogContent,
@@ -16,9 +16,9 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from "../components/ui/dialog";
+} from "../ui/dialog";
 
- export type MobileProductValues = {
+export type MobileProductValues = {
   title: string;
   image: string;
   description: string;

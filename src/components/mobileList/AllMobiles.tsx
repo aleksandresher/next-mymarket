@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { loadMobiles } from "@lib/load-mobiles";
 import MobileSmallCard from "./MobileSmallCard";
 import { MobileProps } from "./MobileSmallCard";
-import SideBar from "./SideBar";
+import SideBar from "../side-accordion/SideBar";
 
 export default function AllMobile() {
   const { data, isLoading, error } = useQuery({

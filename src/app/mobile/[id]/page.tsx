@@ -1,8 +1,8 @@
 import { loadMobiles } from "@lib/load-mobiles";
-import { MobileProductValues } from "@components/ProductCreator";
+import { MobileProductValues } from "@components/data-creators/ProductCreator";
 import { useQuery } from "@tanstack/react-query";
-import SingleMobile from "@components/SingleMobile";
-import SpecificationTable from "@components/SpecificationTable";
+import SingleMobile from "@components/singleMobile/SingleMobile";
+import SpecificationTable from "@components/singleMobile/SpecificationTable";
 
 type MobileProps = {
   _id: number;

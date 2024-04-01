@@ -1,6 +1,6 @@
 import React from "react";
-import CategoryCreator from "@/components/CategoryCreator";
-import ProductCreator from "@components/ProductCreator";
+import CategoryCreator from "@components/data-creators/CategoryCreator";
+import ProductCreator from "@components/data-creators/ProductCreator";
 
 export default function AdminPage() {
   return (

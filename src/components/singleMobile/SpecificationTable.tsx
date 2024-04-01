@@ -7,17 +7,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { MobileProps } from "./MobileSmallCard";
+import { MobileProps } from "../mobileList/MobileSmallCard";
 
 export default function SpecificationTable({ data }: { data: MobileProps }) {
   return (
     <div className="w-4/5 bg-[#fff] p-5">
-      {" "}
       <Table>
         <TableHeader>
-          <TableRow className="border-[#c6c9cc]">
-            <TableHead className="w-[100px] border-b-2 border-yellow-600">
-              სპეციფიკაციები
+          <TableRow className="border-none">
+            <TableHead className="w-[100px] ">
+              <div className="w-fit border-b-2 border-yellow-500">
+                <p className="text-lg font-bold pb-2">სპეციფიკაციები</p>
+              </div>
             </TableHead>
             <TableHead></TableHead>
           </TableRow>

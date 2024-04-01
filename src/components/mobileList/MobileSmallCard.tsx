@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MobileProductValues } from "./ProductCreator";
+import { MobileProductValues } from "../data-creators/ProductCreator";
 
 export type MobileProps = {
   _id: string;
@@ -29,6 +29,7 @@ export type MobileProps = {
   internalmemory: number;
   maincamera: number;
   condition: string;
+  createdAt: string;
 };
 
 export default function MobileSmallCard({ item }: { item: MobileProps }) {

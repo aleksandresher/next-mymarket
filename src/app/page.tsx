@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/navigation/NavBar";
 
 export default async function Home() {
   return (

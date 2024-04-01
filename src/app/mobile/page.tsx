@@ -1,4 +1,4 @@
-import AllMobile from "@components/AllMobiles";
+import AllMobile from "@components/mobileList/AllMobiles";
 
 export default function Mobiles() {
   return (
