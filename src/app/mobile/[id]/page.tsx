@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import SingleMobile from "@components/singleMobile/SingleMobile";
 import SpecificationTable from "@components/singleMobile/SpecificationTable";
 import Partners from "@components/Partners";
+import Footer from "@components/Footer";
 
 type MobileProps = {
   _id: number;
@@ -49,6 +50,7 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className=" bg-[#f1f3f6] flex flex-col items-center">
       <SingleMobile mobileId={params.id} />
+      <Footer />
       <Partners />
     </div>
   );
