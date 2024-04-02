@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MobileProductValues } from "../data-creators/ProductCreator";
+import { MobileProductValues } from "../data-creators/mobiles/MobileCreator";
 
 export type MobileProps = {
   _id: string;

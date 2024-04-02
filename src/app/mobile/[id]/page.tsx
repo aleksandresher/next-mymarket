@@ -1,5 +1,5 @@
 import { loadMobiles } from "@lib/load-mobiles";
-import { MobileProductValues } from "@components/data-creators/ProductCreator";
+import { MobileProductValues } from "@components/data-creators/mobiles/MobileCreator";
 import { useQuery } from "@tanstack/react-query";
 import SingleMobile from "@components/singleMobile/SingleMobile";
 import SpecificationTable from "@components/singleMobile/SpecificationTable";

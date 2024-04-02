@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CldUploadWidget } from "next-cloudinary";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useState } from "react";
-import { useToast } from "../ui/use-toast";
+import { useToast } from "../../ui/use-toast";
 
 import {
   Dialog,
@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from "../ui/dialog";
+} from "../../ui/dialog";
 
 type FormValues = {
   title: string;

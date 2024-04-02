@@ -4,9 +4,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useForm, useFieldArray } from "react-hook-form";
 import { useState } from "react";
-import { useToast } from "../ui/use-toast";
-import { cn } from "@lib/utils";
-import { Button } from "../ui/button";
+import { useToast } from "../../ui/use-toast";
+
+import { Button } from "../../ui/button";
 import {
   Dialog,
   DialogContent,
@@ -16,7 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from "../ui/dialog";
+} from "../../ui/dialog";
 
 export type MobileProductValues = {
   title: string;
@@ -46,7 +46,7 @@ export type MobileProductValues = {
   condition: string;
 };
 
-export default function ProductCreator() {
+export default function MobileCreator() {
   const {
     register,
     handleSubmit,

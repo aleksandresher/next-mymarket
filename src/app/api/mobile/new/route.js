@@ -1,5 +1,6 @@
 import { connectToDB } from "@/utils/database";
-import Mobile from "../../../../models/Mobile";
+
+import Mobile from "../../../../../models/Mobile";
 
 export const POST = async (request) => {
   const { data } = await request.json();

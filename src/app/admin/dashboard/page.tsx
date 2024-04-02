@@ -1,13 +1,17 @@
 import React from "react";
-import CategoryCreator from "@components/data-creators/CategoryCreator";
-import ProductCreator from "@components/data-creators/ProductCreator";
+import CategoryCreator from "@components/data-creators/categories/CategoryCreator";
+import MobileCreator from "@components/data-creators/mobiles/MobileCreator";
+import LaptopCreator from "@components/data-creators/laptops/LaptopCreator";
+import BicycleCreator from "@components/data-creators/bicycle/BicycleCreator";
 
 export default function AdminPage() {
   return (
     <div>
       AdminPage
       <CategoryCreator />
-      <ProductCreator />
+      <MobileCreator />
+      <LaptopCreator />
+      <BicycleCreator />
     </div>
   );
 }
