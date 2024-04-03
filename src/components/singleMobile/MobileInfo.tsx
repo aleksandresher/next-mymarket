@@ -16,7 +16,7 @@ export default function MobileInfo({ data }: { data: MobileProps }) {
 
   const id = data?._id.slice(0, 5);
   return (
-    <div className="">
+    <div className="flex flex-col gap-2">
       <span className="flex gap-8">
         <p>ID {id}</p>
         <span className="flex gap-3">
@@ -24,10 +24,17 @@ export default function MobileInfo({ data }: { data: MobileProps }) {
           {createdAt && <p>{formatDate(createdAt)}</p>}
         </span>
       </span>
-      <h1 className="text-xl font-bold">{data?.title}</h1>
-      <p>{data?.owner}</p>
-      <p>{data?.place}</p>
-      <p>{data?.description}</p>
+      <div className="flex flex-col gap-3">
+        <h1 className="text-xl font-bold border-b-[1px] border-[#9599a0] pb-2">
+          {data?.title}
+        </h1>
+        <p>{data?.owner}</p>
+        <p className="text-sm font-medium">{data?.place}</p>
+      </div>
+
+      <div className="border-t-[1px] mt-2 border-[#9599a0]">
+        <p>{data?.description}</p>
+      </div>
     </div>
   );
 }

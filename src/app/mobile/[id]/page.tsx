@@ -50,8 +50,6 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className=" bg-[#f1f3f6] flex flex-col items-center">
       <SingleMobile mobileId={params.id} />
-      <Footer />
-      <Partners />
     </div>
   );
 }

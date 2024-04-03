@@ -10,10 +10,7 @@ export const GET = async (response) => {
     const exsMobiles = await Mobile.find({ vipplus: true });
     const exsBicycles = await Bicycle.find({ vipplus: true });
 
-    const responseData = {
-      mobiles: exsMobiles,
-      bicycles: exsBicycles,
-    };
+    const responseData = [...exsMobiles, ...exsBicycles];
 
     return new Response(JSON.stringify(responseData), { status: 201 });
   } catch (error) {

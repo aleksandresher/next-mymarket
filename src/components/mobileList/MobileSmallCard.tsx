@@ -40,8 +40,8 @@ export default function MobileSmallCard({ item }: { item: MobileProps }) {
           <Image
             src={item.image}
             alt={item.title}
-            width={500}
-            height={400}
+            width={300}
+            height={300}
             className="p-1"
           />
           <div>
@@ -79,16 +79,16 @@ export default function MobileSmallCard({ item }: { item: MobileProps }) {
           </div>
         </div>
         <div className="flex flex-col gap-5 pl-8 pt-2 justify-between pb-3 h-[130px]">
-          <p className="text-[#b1b3b6]">{item.owner}</p>
+          <p className="text-[#b1b3b6] text-sm">{item.owner}</p>
           <h1 className="">{item.title}</h1>
           <h2 className="overflow-y-hidden text-[#b1b3b6]">
             {item.description}
           </h2>
         </div>
 
-        <span className="flex justify-between items-center h-[60px] border-t-2 border-[#f1f3f6] p-3 row-span-4">
+        <span className="flex justify-between items-center h-[60px] border-t-2 border-[#e9ebee] p-3 row-span-4">
           <div className="flex items-center">
-            <p className="font-bold">{item.price}</p>
+            <p className="font-bold">{item.price}.00</p>
             <Image src="/gel.png" width={20} height={10} alt="georgian-gel" />
           </div>
 

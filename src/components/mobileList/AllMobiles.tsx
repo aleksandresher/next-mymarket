@@ -13,7 +13,6 @@ export default function AllMobile() {
   });
   return (
     <div className="flex">
-      <SideBar />
       <div className="grid grid-cols-4 gap-4 w-[1000px]">
         {data?.map((item: MobileProps) => {
           return <MobileSmallCard item={item} key={item.title} />;

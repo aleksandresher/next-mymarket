@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function BuyCard({ price }: { price: number }) {
   return (
-    <div className="w-[300px] flex flex-col gap-3 bg-[#fff] p-3 rounded-[10px]">
+    <div className="w-[300px] flex flex-col gap-3 bg-[#fff] p-3 rounded-[10px] shadow-lg pt-5">
       <div className="flex items-center gap-1 p-1">
         <h1 className="text-2xl font-bold">{price}.00</h1>
         <Image src="/gel.png" width={25} height={25} alt="gelIcon" />
