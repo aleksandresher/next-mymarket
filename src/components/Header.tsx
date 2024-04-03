@@ -25,17 +25,20 @@ export default function Header() {
             <Image src="/plus.svg" width={20} height={20} alt="plus" />
             <button>დამატება</button>
           </span>
-          <Image src="/message.png" width={20} height={20} alt="message" />
-          <Image src="/heart.png" width={20} height={20} alt="message" />
-          <Image src="/cart.png" width={20} height={20} alt="cart" />
-          <span>
-            <Image src="/auth.png" width={10} height={10} alt="auth" />
+          <span className="flex items-center gap-2">
+            <Image src="/message.png" width={20} height={20} alt="message" />
+            <Image src="/heart.png" width={20} height={20} alt="message" />
+            <Image src="/cart.png" width={20} height={20} alt="cart" />
+          </span>
+
+          <span className="flex items-center">
+            <Image src="/auth.png" width={15} height={15} alt="auth" />
             <p>შესვლა</p>
           </span>
           <Image
             src="/authorization.svg"
-            width={20}
-            height={20}
+            width={40}
+            height={40}
             alt="authorization"
           />
         </div>
