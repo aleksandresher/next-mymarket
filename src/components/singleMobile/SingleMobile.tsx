@@ -13,7 +13,7 @@ export default function SingleMobile({ mobileId }: { mobileId: string }) {
   });
   return (
     <section className="w-full flex flex-col items-center p-4 mt-8 ">
-      <section className="flex justify-between mb-8 gap-4 bg-[#fff] p-8">
+      <section className="w-11/12 flex justify-between mb-8 gap-4 bg-[#fff] p-8">
         <ImageCard data={data} />
         <MobileInfo data={data} />
         <BuyCard price={data?.price} />

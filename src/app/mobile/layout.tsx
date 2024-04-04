@@ -5,7 +5,7 @@ export default function MobileLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className="flex flex-col  items-center">
       <Header />
       {children}
     </main>

@@ -11,7 +11,7 @@ import { MobileProps } from "../mobileList/MobileSmallCard";
 
 export default function SpecificationTable({ data }: { data: MobileProps }) {
   return (
-    <div className="w-4/5 bg-[#fff] p-5 rounded-[10px] mb-8">
+    <div className="w-11/12 bg-[#fff] p-5 rounded-[10px] mb-8">
       <Table>
         <TableHeader>
           <TableRow className="border-none">

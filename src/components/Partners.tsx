@@ -4,7 +4,7 @@ export default function Partners() {
   return (
     <section className="w-full flex justify-center mt-6">
       {" "}
-      <div className="flex w-4/5 mb-[100px] justify-between border border-[#cfcaca] p-6 rounded-[64px]">
+      <div className="flex w-11/12 mb-[100px] justify-between border border-[#cfcaca] p-6 rounded-[64px]">
         <div className="bg-[#3c74ff] p-3 rounded-[64px] h-full">
           <Image src="/partners/tnet.svg" width={66} height={60} alt="tne" />
         </div>

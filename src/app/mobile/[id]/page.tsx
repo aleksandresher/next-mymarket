@@ -48,7 +48,7 @@ export async function generateStaticParams() {
 
 export default function Page({ params }: { params: { id: string } }) {
   return (
-    <div className=" bg-[#f1f3f6] flex flex-col items-center">
+    <div className="w-11/12 bg-[#f1f3f6] flex flex-col items-center">
       <SingleMobile mobileId={params.id} />
     </div>
   );
