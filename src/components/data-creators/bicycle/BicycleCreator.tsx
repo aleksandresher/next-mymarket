@@ -36,6 +36,8 @@ export type BicycleProductValues = {
   size: number;
 };
 
+const URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export default function BicycleCreator() {
   const {
     register,
@@ -49,7 +51,7 @@ export default function BicycleCreator() {
 
   const mutation = useMutation({
     mutationFn: async (data: BicycleProductValues) =>
-      await fetch("http://localhost:3000/api/bicycle/new", {
+      await fetch(`${URL}/api/bicycle/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

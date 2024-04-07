@@ -12,7 +12,7 @@ export const GET = async (response) => {
 
     const responseData = [...exsMobiles, ...exsBicycles];
 
-    return new Response(JSON.stringify(responseData), { status: 201 });
+    return new Response(JSON.stringify(responseData), { status: 200 });
   } catch (error) {
     console.error(error);
     return response
