@@ -1,8 +1,12 @@
-import { MobileProps } from "@components/mobileList/MobileSmallCard";
 import Image from "next/image";
-import { Suspense } from "react";
 
-export default function MobileInfo({ data }: { data: MobileProps }) {
+import { MobileType, LaptopType } from "@lib/mobile-laptop";
+
+type Props = {
+  data: MobileType | LaptopType;
+};
+
+export default function Info({ data }: Props) {
   const createdAt = data?.createdAt ? new Date(data.createdAt) : null;
   const formatDate = (date: Date) => {
     const day = String(date.getDate()).padStart(2, "0");

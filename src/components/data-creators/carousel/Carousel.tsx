@@ -79,7 +79,7 @@ export default function CarouselWrapper({
       <Slider {...settings} ref={sliderRef}>
         {data?.map((item) => {
           return (
-            <Link href={`/mobile/${item._id}`} key={item?._id}>
+            <Link href={`/shop/${item.category}/${item._id}`} key={item?._id}>
               <div className="flex flex-col gap-1" key={item?._id}>
                 <Image
                   src={item?.image}

@@ -16,6 +16,7 @@ interface IBicycle {
   type: string;
   speedometr: boolean | false;
   size: number;
+  category: string;
 }
 
 const bicycleschema = new Schema<IBicycle>(
@@ -23,6 +24,7 @@ const bicycleschema = new Schema<IBicycle>(
     title: { type: String, required: true },
     image: { type: String, required: true },
     place: { type: String, required: true },
+    category: { type: String, required: true },
     owner: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },

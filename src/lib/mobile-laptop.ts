@@ -26,6 +26,7 @@ export type MobileType = {
   maincamera: number;
   condition: string;
   createdAt: string;
+  category: string;
 };
 
 export type LaptopType = {
@@ -50,5 +51,27 @@ export type LaptopType = {
   ssd: number;
   hdd: number;
   condition: string;
+  createdAt: string;
+  category: string;
+};
+
+export type BicycleType = {
+  _id: string;
+  title: string;
+  image: string;
+  description: string;
+  price: number;
+  owner: string;
+  place: string;
+  vipplus: boolean | false;
+  vip: boolean | false;
+  supervip: boolean | false;
+  condition: string;
+  amortization: boolean | false;
+  folding: boolean | false;
+  type: string;
+  speedometr: boolean | false;
+  size: number;
+  category: string;
   createdAt: string;
 };

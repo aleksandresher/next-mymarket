@@ -7,9 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { MobileProps } from "../mobileList/MobileSmallCard";
+import { MobileType } from "@lib/mobile-laptop";
 
-export default function SpecificationTable({ data }: { data: MobileProps }) {
+export default function SpecificationTable({ data }: { data: MobileType }) {
   return (
     <div className="w-11/12 bg-[#fff] p-5 rounded-[10px] mb-8">
       <Table>

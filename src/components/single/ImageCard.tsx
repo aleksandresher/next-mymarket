@@ -1,8 +1,12 @@
 import Image from "next/image";
 
-import { MobileProps } from "@components/mobileList/MobileSmallCard";
+import { MobileType, LaptopType } from "@lib/mobile-laptop";
 
-export default function ImageCard({ data }: { data: MobileProps }) {
+type Props = {
+  data: MobileType | LaptopType;
+};
+
+export default function ImageCardSingle({ data }: Props) {
   return (
     <div className="relative">
       <Image src={data?.image} width={300} height={300} alt="mobile" />
