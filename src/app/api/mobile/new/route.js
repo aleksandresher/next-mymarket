@@ -12,6 +12,7 @@ export const POST = async (request) => {
       vipplus: data.vipplus,
       vip: data.vip,
       supervip: data.supervip,
+      category: data.category,
       brand: data.brand,
       model: data.model,
       osversion: data.osversion,

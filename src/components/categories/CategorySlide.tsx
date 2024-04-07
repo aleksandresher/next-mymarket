@@ -30,7 +30,7 @@ export default function CategorySlide() {
             შეიძინე <br></br> განვადებით
           </p>
         </div>
-        <Link href="/mobile">
+        <Link href="/shop/mobile">
           {" "}
           <div className="relative">
             <Image
@@ -69,17 +69,19 @@ export default function CategorySlide() {
           <Image src="/categories/5.jpg" width={170} height={120} alt="ძაღლი" />
           <p className="absolute top-1 p-2 font-bold tracking-wide">ძაღლი</p>
         </div>
-        <div className="relative">
-          <Image
-            src="/categories/6.jpg"
-            width={170}
-            height={120}
-            alt="ველოსიპედი"
-          />
-          <p className="absolute top-1 p-2 font-bold tracking-wide">
-            ველოსიპედი
-          </p>
-        </div>
+        <Link href="/shop/bicycle">
+          <div className="relative">
+            <Image
+              src="/categories/6.jpg"
+              width={170}
+              height={120}
+              alt="ველოსიპედი"
+            />
+            <p className="absolute top-1 p-2 font-bold tracking-wide">
+              ველოსიპედი
+            </p>
+          </div>
+        </Link>
       </div>
     </section>
   );

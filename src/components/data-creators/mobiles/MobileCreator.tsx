@@ -44,6 +44,7 @@ export type MobileProductValues = {
   internalmemory: number;
   maincamera: number;
   condition: string;
+  category: string;
 };
 
 export default function MobileCreator() {
@@ -300,6 +301,19 @@ export default function MobileCreator() {
                   className=" w-full p-2  rounded-[8px]"
                   id="os"
                   {...register("os", {
+                    required: "this field is required",
+                  })}
+                />
+                {errors.os?.message && <span>{errors.os.message}</span>}
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="os" className="text-right">
+                  Category
+                </label>
+                <input
+                  className=" w-full p-2  rounded-[8px]"
+                  id="category"
+                  {...register("category", {
                     required: "this field is required",
                   })}
                 />

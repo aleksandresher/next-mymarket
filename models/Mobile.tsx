@@ -3,6 +3,7 @@ import { Schema, model, models } from "mongoose";
 interface IMobile {
   title: string;
   image: string;
+  category: string;
   place: string;
   owner: string;
   description: string;
@@ -33,6 +34,7 @@ const mobileschema = new Schema<IMobile>(
     title: { type: String, required: true },
     image: { type: String, required: true },
     place: { type: String, required: true },
+    category: { type: String, required: true },
     owner: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
