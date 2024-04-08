@@ -26,7 +26,7 @@ export default function GenericCategory() {
     <div className="flex justify-center">
       <div className="grid grid-cols-4 gap-4 w-[1000px]">
         {data?.map((item) => {
-          return <GeneralCard item={item} />;
+          return <GeneralCard item={item} key={item._id} />;
         })}
       </div>
     </div>

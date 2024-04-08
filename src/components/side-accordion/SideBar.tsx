@@ -32,7 +32,7 @@ export default function SideBar() {
             <span className="flex items-center gap-3 p-2">
               <Switch id="withoutPrice" />
               <Label htmlFor="withoutPrice" className="font-8">
-                "ფასი შეთანხმებით"-ის <br></br>გარეშე
+                'ფასი შეთანხმებით'-ის გარეშე
               </Label>
             </span>
             <span className="flex items-center gap-3 p-2">
