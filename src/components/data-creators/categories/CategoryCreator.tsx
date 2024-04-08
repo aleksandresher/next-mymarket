@@ -25,6 +25,8 @@ type FormValues = {
   }[];
 };
 
+const URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export default function CategoryCreator() {
   const {
     register,
@@ -45,7 +47,7 @@ export default function CategoryCreator() {
 
   const mutation = useMutation({
     mutationFn: async (data: FormValues) =>
-      await fetch("http://localhost:3000/api/categories/new", {
+      await fetch(`${URL}/api/categories/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -42,6 +42,7 @@ export type LaptopProductValues = {
 };
 
 export default function LaptopCreator() {
+  const URL = process.env.NEXT_PUBLIC_BASE_URL;
   const {
     register,
     handleSubmit,
@@ -53,7 +54,7 @@ export default function LaptopCreator() {
 
   const mutation = useMutation({
     mutationFn: async (data: LaptopProductValues) =>
-      await fetch("http://localhost:3000/api/laptop/new", {
+      await fetch(`${URL}/api/laptop/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

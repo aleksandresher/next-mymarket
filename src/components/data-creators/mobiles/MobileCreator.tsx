@@ -48,6 +48,7 @@ export type MobileProductValues = {
 };
 
 export default function MobileCreator() {
+  const URL = process.env.NEXT_PUBLIC_BASE_URL;
   const {
     register,
     handleSubmit,
@@ -60,7 +61,7 @@ export default function MobileCreator() {
 
   const mutation = useMutation({
     mutationFn: async (data: MobileProductValues) =>
-      await fetch("http://localhost:3000/api/mobile/new", {
+      await fetch(`${URL}/api/mobile/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
