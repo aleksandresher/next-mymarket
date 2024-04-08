@@ -11,9 +11,10 @@ export default function CategorySlide() {
         <div className="bg-black w-[170px] h-[120px] rounded-[14px] relative p-1">
           <Image
             src="/categories/menu.svg"
-            width={50}
+            width={52}
             height={50}
             alt="ყველა კატეგორია"
+            className=" max-w-16 max-h-16 h-auto"
           />
           <p className="absolute text-white p-2">
             ყველა <br></br> კატეგორია

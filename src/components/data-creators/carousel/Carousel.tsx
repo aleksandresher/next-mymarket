@@ -38,8 +38,6 @@ export default function CarouselWrapper({
     swipeToSlide: true,
   };
 
-  console.log(`data from carousel ${data}`);
-
   return (
     <div className="w-full container px-5 gap-5 slider-container flex flex-col">
       <div className="flex justify-between items-center ">

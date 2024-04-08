@@ -12,6 +12,7 @@ export default function Header() {
               height={40}
               width={150}
               alt="mymarket logo"
+              className=" max-w-40 max-h-10 w-auto h-auto"
             />
           </Link>
 
