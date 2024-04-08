@@ -12,7 +12,11 @@ import { Switch } from "@/components/ui/switch";
 
 export default function MobileSideBar() {
   return (
-    <Accordion type="single" collapsible className="w-[240px] bg-[#fff] p-4">
+    <Accordion
+      type="single"
+      collapsible
+      className="w-[240px] bg-[#fff] p-4 mt-5 shadow-md rounded-[10px]"
+    >
       <AccordionItem value="item-1">
         <AccordionTrigger>ფასი</AccordionTrigger>
         <AccordionContent>

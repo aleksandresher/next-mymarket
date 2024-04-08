@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { loadProducts } from "@lib/load-product";
 import GeneralCard from "@components/GeneralCard";
 import { MobileType, LaptopType, BicycleType } from "@lib/mobile-laptop";
+import MobileSideBar from "@components/sideBars/MobileSideBar";
 
 export default function GenericCategory() {
   const params = useParams();
@@ -23,12 +24,18 @@ export default function GenericCategory() {
   });
 
   return (
-    <div className="flex justify-center">
-      <div className="grid grid-cols-4 gap-4 w-[1000px]">
-        {data?.map((item) => {
-          return <GeneralCard item={item} key={item._id} />;
-        })}
+    <section className="w-full flex justify-center px-12">
+      <div className="w-11/12 flex gap-3">
+        <div className="">
+          <MobileSideBar />
+        </div>
+
+        <div className="w-4/5 grid grid-cols-4 gap-4">
+          {data?.map((item) => {
+            return <GeneralCard item={item} key={item._id} />;
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

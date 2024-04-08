@@ -3,13 +3,12 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="flex w-full justify-center">
-      <section className="w-11/12 grid grid-cols-5 bg-white p-8 justify-between">
-        {" "}
+      <section className="w-11/12 grid grid-cols-5 bg-white p-8 justify-between px-12">
         <div className="p-5">
           <h1 className="text-xl font-medium mb-7">ნავიგაცია</h1>
           <ul className="flex flex-col gap-5">
             <Link href="">
-              <li className=" text-xs text-gray-400 hover:text-black hover:text-black">
+              <li className=" text-xs text-gray-400 hover:text-black">
                 განცხადების დამატება
               </li>
             </Link>
@@ -160,7 +159,7 @@ export default function Footer() {
             </Link>
           </ul>
         </div>
-      </section>{" "}
+      </section>
     </footer>
   );
 }
