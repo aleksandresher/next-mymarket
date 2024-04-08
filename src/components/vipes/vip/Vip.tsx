@@ -17,9 +17,11 @@ export default function Vip() {
 
   if (isLoading) {
     return (
-      <div className="w-11/12 flex flex-col gap-6 mt-8 items-center mb-9">
-        <CarouselSkeleton image={image} title={title} />
-      </div>
+      <section className="w-full flex justify-center px-12">
+        <div className="w-11/12 flex flex-col gap-6 mt-8 items-center mb-9">
+          <CarouselSkeleton image={image} title={title} />
+        </div>
+      </section>
     );
   }
 
