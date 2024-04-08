@@ -6,7 +6,6 @@ import MainProvider from "./providers/SessionProvider";
 import { Toaster } from "../components/ui/toaster";
 import Footer from "@components/Footer";
 import Partners from "@components/Partners";
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <ReactQueryProvider>
           <MainProvider>
             {children}

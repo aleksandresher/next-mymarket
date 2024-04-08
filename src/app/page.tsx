@@ -11,7 +11,7 @@ import RecentlyCreated from "@components/recentlyCreated/RecentlyCreated";
 
 export default async function Home() {
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-between pl-12 pr-12 pt-6 gap-5">
+    <main className="w-full flex min-h-screen flex-col items-center justify-between pt-6 gap-5">
       {/* <NavBar /> */}
       <Header />
       <HeaderBottom />

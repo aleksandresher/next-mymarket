@@ -40,13 +40,13 @@ export default function CarouselWrapper({
 
   return (
     <div className="w-full container px-5 gap-5 slider-container flex flex-col">
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center pr-4 ">
         <span className="flex  items-center gap-3">
           <Image src={image} alt="title" width={40} height={40} />
           <h1 className="text-xl font-bold">{title}</h1>
         </span>
         <div className="flex gap-2 items-center">
-          <h1>ყველას ნახვა</h1>
+          <h1 className="font-tbc-medium">ყველას ნახვა</h1>
           <span className="flex gap-2">
             <button
               className="button border rounded-[50%] p-1 border-[#7b7e7e]"
@@ -89,15 +89,8 @@ export default function CarouselWrapper({
                 <h1 className="overflow-hidden h-[50px] w-[200px] px-2">
                   {item?.title}
                 </h1>
-                <div className="flex mt-5 px-2 items-center gap-1">
-                  <h2 className="text font-bold ">{item?.price}.00</h2>
-                  <Image
-                    src="/gel.png"
-                    width={15}
-                    height={10}
-                    alt="gelIcon"
-                    className="h-[15px]"
-                  />
+                <div className="flex mt-5 px-2 items-center">
+                  <h2 className="text font-bold">{item?.price}.00 ₾</h2>
                 </div>
               </div>
             </Link>
