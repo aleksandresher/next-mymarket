@@ -17,10 +17,8 @@ export default function Vip() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col h-[242px]">
-        <h1>loading</h1>
-        <Image src="/vip/vip.svg" width={40} height={40} alt="supervip" />
-        <CarouselSkeleton />
+      <div className="w-11/12 flex flex-col gap-6 mt-8 items-center mb-9">
+        <CarouselSkeleton image={image} title={title} />
       </div>
     );
   }

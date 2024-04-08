@@ -34,14 +34,14 @@ export default function Partners() {
           width={80}
           height={30}
           alt="myhome"
-          className=" max-w-20 max-h-8"
+          className="max-w-20 max-h-8"
         />
         <Image
           src="/partners/mymarket.svg"
           width={80}
           height={30}
           alt="mymarket"
-          className="max-w-20 max-h-8 w-auto h-auto"
+          className="max-w-20 max-h-8"
         />
         <Image
           src="/partners/superapp.svg"
