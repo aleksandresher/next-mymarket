@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { loadProducts } from "@lib/load-product";
 import GeneralCard from "@components/GeneralCard";
 import { MobileType, LaptopType, BicycleType } from "@lib/mobile-laptop";
-import MobileSideBar from "@components/sideBars/MobileSideBar";
+import SideBarSelector from "@components/sideBars/SideBarSelector";
 
 export default function GenericCategory() {
   const params = useParams();
@@ -27,7 +27,7 @@ export default function GenericCategory() {
     <section className="w-full flex justify-center px-12">
       <div className="w-11/12 flex gap-3">
         <div className="">
-          <MobileSideBar />
+          <SideBarSelector category={category} />
         </div>
         <div className="w-4/5 flex-grow">
           <div className=" grid grid-cols-4 gap-4 ">
