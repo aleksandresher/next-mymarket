@@ -39,7 +39,9 @@ export default function Header() {
 
             <span className="flex items-center border-[1px] border-[#6699CC]  p-2 gap-2 rounded-[15px]  ">
               <Image src="/auth.png" width={20} height={20} alt="auth" />
-              <p className=" tracking-wide font-bold">შესვლა</p>
+              <Link href="/login">
+                <p className=" tracking-wide font-bold">შესვლა</p>
+              </Link>
             </span>
             <Image
               src="/authorization.svg"
