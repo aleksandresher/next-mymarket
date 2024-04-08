@@ -16,8 +16,8 @@ export function LocationSelect() {
       <SelectTrigger className="w-[205px]   border-2 border-[#a3c4df] rounded-[8px]">
         <SelectValue placeholder="აირჩიე მდებარეობა" />
       </SelectTrigger>
-      <SelectContent className="border-2 border-[#abb0b9] p-0 rounded-[4px]">
-        <SelectGroup className="z-60 bg-slate-100 ">
+      <SelectContent className="border-2 border-[#dcdee2] p-0 rounded-[4px]">
+        <SelectGroup className="z-60 bg-white ">
           <SelectItem value="თბილისი">თბილისი</SelectItem>
           <SelectItem value="აბაშა">აბაშა</SelectItem>
           <SelectItem value="ამბროლაური">ამბროლაური</SelectItem>

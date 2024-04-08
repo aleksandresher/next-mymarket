@@ -29,11 +29,12 @@ export default function GenericCategory() {
         <div className="">
           <MobileSideBar />
         </div>
-
-        <div className="w-4/5 grid grid-cols-4 gap-4">
-          {data?.map((item) => {
-            return <GeneralCard item={item} key={item._id} />;
-          })}
+        <div className="w-4/5 flex-grow">
+          <div className=" grid grid-cols-4 gap-4 ">
+            {data?.map((item) => {
+              return <GeneralCard item={item} key={item._id} />;
+            })}
+          </div>
         </div>
       </div>
     </section>
