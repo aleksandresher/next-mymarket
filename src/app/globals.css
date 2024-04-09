@@ -54,3 +54,8 @@ body {
     @apply appearance-none;
   }
 }
+
+.slick-list {
+  width: 300px;
+}
+

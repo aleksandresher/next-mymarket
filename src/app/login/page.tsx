@@ -1,4 +1,6 @@
 import Login from "@components/login-signup/Login";
+import LeftSlider from "@components/loginSlider/LeftSlider";
+import RightSlider from "@components/loginSlider/RightSlider";
 
 export default function LoginPage() {
   return (
@@ -7,7 +9,10 @@ export default function LoginPage() {
         <Login />
       </div>
 
-      <div className="w-1/2">contenxt</div>
+      <div className="w-1/2 flex justify-around">
+        <LeftSlider />
+        <RightSlider />
+      </div>
     </section>
   );
 }
