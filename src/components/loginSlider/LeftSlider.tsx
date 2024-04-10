@@ -30,7 +30,7 @@ export default function LeftSlider() {
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-container w-[300px]">
       <Slider {...settings} ref={sliderRef}>
         {Array.from({ length: 7 }, (_, index) => (
           <div
@@ -111,16 +111,31 @@ const SlideContent = ({
         }`}
         alt={content[index].alt}
       />
+
       {isHovered && (
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center bg-white bg-opacity-80 shadow-md">
-          <Image
-            src={content[index].overlayImage}
-            width={150}
-            height={150}
-            alt={content[index].alt}
-            className="mb-2"
-          />
-          <p>{content[index].text}</p>
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-start text-center bg-white bg-opacity-80 shadow-md gap-4">
+          <span className="flex justify-start px-3">
+            <Image
+              src={content[index].overlayImage}
+              width={150}
+              height={150}
+              alt={content[index].alt}
+              className="mb-2"
+            />
+          </span>
+          <span className="flex justify-start px-3">
+            <p className="text-start">{content[index].text}</p>
+          </span>
+
+          <span className="flex gap-4 px-3 cursor-pointer">
+            <p>ნახვა</p>
+            <Image
+              src="/arrows/longright.svg"
+              width={20}
+              height={16}
+              alt="see more"
+            />
+          </span>
         </div>
       )}
     </div>
