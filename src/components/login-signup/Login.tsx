@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Link from "next/link";
 
 export type UserProps = {
   email: string;
@@ -41,7 +42,11 @@ export default function Login() {
     // mutation.mutate(formData);
   };
   return (
-    <div className="flex flex-col items-center p-12">
+    <div className="flex flex-col items-center p-12 gap-4">
+      <div className="px-[64px] w-full flex items-start mb-12">
+        <Image src="/tineti.svg" width={200} height={50} alt="თნეტი" />
+      </div>
+
       <div className="w-4/5 flex justify-start">
         <h1 className="text-[32px] font-tbc-bold">ავტორიზაცია</h1>
       </div>
@@ -51,7 +56,7 @@ export default function Login() {
           <div className="w-full flex items-center gap-2">
             <input
               placeholder="ელფოსტა | ტელეფონის ნომერი"
-              className="p-2  rounded-[8px] w-full border-[1px] border-[#dbdbdb] focus:border-[#3c74ff] focus:border-2 py-4 outline-none"
+              className="p-2  rounded-[8px] w-full h-[55px] border-[2px] border-[#dbdbdb] focus:border-[#3c74ff] focus:border-2 py-4 outline-none"
               id="email"
               {...register("email", {
                 required: "this field is required",
@@ -64,7 +69,7 @@ export default function Login() {
             <input
               placeholder="პაროლი"
               type="password"
-              className="w-full p-2  rounded-[8px] border-[1px] border-[#dbdbdb] focus:border-[#3c74ff] focus:border-2 py-4 outline-none"
+              className="w-full p-2 h-[55px]  rounded-[8px] border-[2px] border-[#dbdbdb] focus:border-[#3c74ff] focus:border-2 py-4 outline-none"
               id="password"
               {...register("password", {
                 required: "this field is required",
@@ -103,7 +108,10 @@ export default function Login() {
       </div>
       <div className="flex p-6 mt-8 gap-2">
         <p className="text-[#9f9d9b] font-tbc-medium">არ გაქვს ანგარიში? - </p>
-        <p className="text-[#6d87ff] font-tbc-medium">შექმენი</p>
+        <Link href="/register">
+          {" "}
+          <p className="text-[#6d87ff] font-tbc-medium">შექმენი</p>
+        </Link>
       </div>
     </div>
   );
