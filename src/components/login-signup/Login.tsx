@@ -2,15 +2,60 @@
 import Image from "next/image";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useSession, getProviders, signOut, signIn } from "next-auth/react";
+import { redirect, usePathname } from "next/navigation";
 
 export type UserProps = {
   email: string;
   password: string;
 };
 
+interface Provider {
+  id: string;
+  name: string;
+  type: string;
+  signinUrl: string;
+  callbackUrl?: string;
+  namespace?: string;
+  clientId?: string;
+}
+
 export default function Login() {
+  const { data: session } = useSession();
+  const [providers, setProviders] = useState<Provider[]>([]);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      res?.null;
+      if (res) {
+        setProviders(Object.values(res));
+      }
+    })();
+  }, []);
+
+  console.log(pathname);
+
+  // useEffect(() => {
+  //   if (
+  //     session?.user &&
+  //     !pathname.startsWith("/admin/dashboard") &&
+  //     pathname !== "/"
+  //   ) {
+  //     redirect("/admin/dashboard");
+  //   }
+  // }, [session, pathname]);
+
+  async function logOutCustom() {
+    try {
+      await signOut({ callbackUrl: "/" });
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  }
   const {
     register,
     handleSubmit,
@@ -88,10 +133,25 @@ export default function Login() {
         </div>
       </form>
       <div className="w-4/5 flex justify-between mt-6">
-        <div className="flex items-center border-[1px] border-[#dbdbdb] px-6 py-2 rounded-[12px] gap-3">
-          <Image src="/social/google.svg" width={30} height={30} alt="google" />
-          <p>Google</p>
-        </div>
+        {/* <div className="flex items-center border-[1px] border-[#dbdbdb] px-6 py-2 rounded-[12px] gap-3">
+          {providers &&
+            Object.values(providers).map((provider) => (
+              <button
+                type="button"
+                key={provider.name}
+                onClick={() => signIn(provider.id)}
+                className="bg-[#38b000] hover:bg-[#008000] p-2 rounded-[8px] text-white"
+              >
+                <Image
+                  src="/social/google.svg"
+                  width={30}
+                  height={30}
+                  alt="google"
+                />
+                <p>Google</p>
+              </button>
+            ))}
+        </div> */}
         <div className="flex items-center border-[1px] border-[#dbdbdb] px-6 py-2 rounded-[12px] gap-3">
           <Image
             src="/social/facebook.svg"
