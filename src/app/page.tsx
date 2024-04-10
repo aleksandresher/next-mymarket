@@ -7,7 +7,7 @@ import HeaderBottom from "@components/header-bottom";
 import HomeSearch from "@components/search/HomeSearch";
 import Vip from "@components/vipes/vip/Vip";
 import SuperVip from "@components/vipes/supervip/SuperVip";
-import RecentlyCreated from "@components/recentlyCreated/RecentlyCreated";
+import RecentlyCreatedWrapper from "@components/recentlyCreated/RecentlyCreatedWrapper";
 
 export default async function Home() {
   return (
@@ -20,7 +20,7 @@ export default async function Home() {
       <SuperVip />
       <VipPlus />
       <Vip />
-      <RecentlyCreated />
+      <RecentlyCreatedWrapper />
     </main>
   );
 }
