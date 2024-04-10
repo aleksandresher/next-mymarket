@@ -1,11 +1,12 @@
 "use client";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LaptopType, MobileType } from "@lib/mobile-laptop";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import CarouselSkeleton from "@components/skeletons/CarouselSkeleton";
 
 interface CarouselWrapperProps {
   data?: Array<MobileType | LaptopType>;
@@ -73,30 +74,31 @@ export default function CarouselWrapper({
           </span>
         </div>
       </div>
-
-      <Slider {...settings} ref={sliderRef}>
-        {data?.map((item) => {
-          return (
-            <Link href={`/shop/${item.category}/${item._id}`} key={item?._id}>
-              <div className="flex flex-col gap-1" key={item?._id}>
-                <Image
-                  src={item?.image}
-                  width={400}
-                  height={527}
-                  alt={item?.title}
-                  className=" max-w-48 max-h-40 rounded-[10px]"
-                />
-                <h1 className="overflow-hidden h-[50px] w-[200px] px-2">
-                  {item?.title}
-                </h1>
-                <div className="flex mt-5 px-2 items-center">
-                  <h2 className="text font-bold">{item?.price}.00 ₾</h2>
+      <Suspense fallback={<CarouselSkeleton />}>
+        <Slider {...settings} ref={sliderRef}>
+          {data?.map((item) => {
+            return (
+              <Link href={`/shop/${item.category}/${item._id}`} key={item?._id}>
+                <div className="flex flex-col gap-1" key={item?._id}>
+                  <Image
+                    src={item?.image}
+                    width={400}
+                    height={527}
+                    alt={item?.title}
+                    className=" max-w-48 max-h-40 rounded-[10px]"
+                  />
+                  <h1 className="overflow-hidden h-[50px] w-[200px] px-2">
+                    {item?.title}
+                  </h1>
+                  <div className="flex mt-5 px-2 items-center">
+                    <h2 className="text font-bold">{item?.price}.00 ₾</h2>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          );
-        })}
-      </Slider>
+              </Link>
+            );
+          })}
+        </Slider>
+      </Suspense>
     </div>
   );
 }
