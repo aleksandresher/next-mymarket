@@ -26,8 +26,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           <MainProvider>
             {children}
-            <Footer />
-            <Partners />
+
             <Toaster />
           </MainProvider>
         </ReactQueryProvider>

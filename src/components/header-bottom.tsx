@@ -1,6 +1,6 @@
 export default function HeaderBottom() {
   return (
-    <section className="w-full flex justify-center px-12">
+    <section className="w-full hidden  px-12  md:visible md:flex justify-center">
       <div className="w-11/12 flex justify-between p-5 pt-0">
         <div className="flex gap-6">
           <p className="text-sm cursor-pointer hover:text-[#eedb6d]">

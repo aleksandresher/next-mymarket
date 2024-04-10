@@ -8,6 +8,8 @@ import HomeSearch from "@components/search/HomeSearch";
 import Vip from "@components/vipes/vip/Vip";
 import SuperVip from "@components/vipes/supervip/SuperVip";
 import RecentlyCreatedWrapper from "@components/recentlyCreated/RecentlyCreatedWrapper";
+import Footer from "@components/Footer";
+import Partners from "@components/Partners";
 
 export default async function Home() {
   return (
@@ -21,6 +23,8 @@ export default async function Home() {
       <VipPlus />
       <Vip />
       <RecentlyCreatedWrapper />
+      <Footer />
+      <Partners />
     </main>
   );
 }
