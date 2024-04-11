@@ -23,9 +23,10 @@ interface Provider {
 }
 
 export default function Login() {
-  const { data: session } = useSession();
+  const { data, status: session } = useSession();
   const [providers, setProviders] = useState<Provider[]>([]);
   const pathname = usePathname();
+  console.log(useSession());
 
   useEffect(() => {
     (async () => {
@@ -47,7 +48,7 @@ export default function Login() {
   //   ) {
   //     redirect("/admin/dashboard");
   //   }
-  // }, [session, pathname]);
+  // }, [session]);
 
   async function logOutCustom() {
     try {
@@ -133,7 +134,7 @@ export default function Login() {
         </div>
       </form>
       <div className="w-4/5 flex justify-between mt-6">
-        {/* <div className="flex items-center border-[1px] border-[#dbdbdb] px-6 py-2 rounded-[12px] gap-3">
+        <div className="flex items-center border-[1px] border-[#dbdbdb] px-6 py-2 rounded-[12px] gap-3">
           {providers &&
             Object.values(providers).map((provider) => (
               <button
@@ -151,7 +152,7 @@ export default function Login() {
                 <p>Google</p>
               </button>
             ))}
-        </div> */}
+        </div>
         <div className="flex items-center border-[1px] border-[#dbdbdb] px-6 py-2 rounded-[12px] gap-3">
           <Image
             src="/social/facebook.svg"

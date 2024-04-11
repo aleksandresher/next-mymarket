@@ -8,16 +8,19 @@ import { DateSelect } from "./DateSelect";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
+const URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export type UserProps = {
-  name: string;
+  username: string;
   lastname: string;
   email: string;
   password: string;
-  password2: string;
+  // password2: string;
   phonenumber: string;
   gender: string;
   rules: boolean;
   confidentiality: boolean;
+  // year: Date;
 };
 
 export default function SignUp() {
@@ -26,8 +29,22 @@ export default function SignUp() {
     handleSubmit,
     formState: { errors },
   } = useForm<UserProps>();
-  const onSubmit = (formData: UserProps) => {
-    console.log(formData);
+  const onSubmit = async (formData: UserProps) => {
+    try {
+      const response = await fetch(`${URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to register user: ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+    }
   };
   return (
     <div className="flex flex-col items-center p-12 gap-4">
@@ -65,7 +82,7 @@ export default function SignUp() {
               <span>{errors.password?.message}</span>
             )}
           </div>
-          <div className="w-full flex items-center gap-2">
+          {/* <div className="w-full flex items-center gap-2">
             <input
               placeholder="გაიმეორე პაროლი"
               className="p-2  rounded-[8px] w-full h-[55px] border-[2px] border-[#dbdbdb] focus:border-[#3c74ff] focus:border-2 py-4 outline-none"
@@ -77,7 +94,7 @@ export default function SignUp() {
             {errors.password2?.message && (
               <span>{errors.password2?.message}</span>
             )}
-          </div>
+          </div> */}
           <div className="flex flex-col gap-3">
             <h3 className="text-[#b0aeac] ">სქესი</h3>
             <div className="flex gap-5">
@@ -113,12 +130,14 @@ export default function SignUp() {
             <input
               placeholder="სახელი"
               className="p-2  rounded-[8px] w-full h-[55px] border-[2px] border-[#dbdbdb] focus:border-[#3c74ff] focus:border-2 py-4 outline-none"
-              id="name"
-              {...register("name", {
+              id="username"
+              {...register("username", {
                 required: "this field is required",
               })}
             />
-            {errors.name?.message && <span>{errors.name?.message}</span>}
+            {errors.username?.message && (
+              <span>{errors.username?.message}</span>
+            )}
           </div>
           <div className="w-full flex items-center gap-2">
             <input
@@ -133,7 +152,8 @@ export default function SignUp() {
               <span>{errors.lastname?.message}</span>
             )}
           </div>
-          <DateSelect />
+          {/* <input type="date" {...register("year")} /> */}
+          {/* <DateSelect /> */}
           <div className="w-full flex items-center gap-2">
             <input
               type="number"
@@ -169,7 +189,7 @@ export default function SignUp() {
         </div>
 
         <div className="w-full flex justify-center items-center bg-[#3c74ff] text-white p-4 rounded-[25px] hover:bg-[#5a88fd] cursor-pointer mt-9">
-          დადასტურება
+          <button> დადასტურება</button>
         </div>
       </form>
       <div className="w-4/5 flex justify-between mt-6">

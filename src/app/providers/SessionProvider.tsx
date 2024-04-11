@@ -7,6 +7,8 @@ interface MainProviderProps {
       name: string;
       email: string;
       image: string;
+      role: string;
+      status: string[];
     };
     expires: string;
   } | null;
