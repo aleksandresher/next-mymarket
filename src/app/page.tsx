@@ -10,6 +10,8 @@ import SuperVip from "@components/vipes/supervip/SuperVip";
 import RecentlyCreatedWrapper from "@components/recentlyCreated/RecentlyCreatedWrapper";
 import Footer from "@components/Footer";
 import Partners from "@components/Partners";
+import { Suspense } from "react";
+import SearchBarFallback from "@components/search/SearchBarFallback";
 
 export default async function Home() {
   return (
@@ -17,7 +19,10 @@ export default async function Home() {
       {/* <NavBar /> */}
       <Header />
       <HeaderBottom />
-      <HomeSearch />
+      <Suspense fallback={<SearchBarFallback />}>
+        <HomeSearch />
+      </Suspense>
+
       <CategorySlide />
       <SuperVip />
       <VipPlus />

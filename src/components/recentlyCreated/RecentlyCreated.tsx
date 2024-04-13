@@ -9,7 +9,6 @@ type Props = {
 };
 
 export default function RecentlyCreated({ data }: Props) {
-  console.log(data);
   return (
     <section className="w-11/12 flex flex-col gap-6 mt-7 p-5">
       <h1 className="text-xl font-bold">ახალი დამატებულები</h1>
