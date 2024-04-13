@@ -12,14 +12,20 @@ import Footer from "@components/Footer";
 import Partners from "@components/Partners";
 import { Suspense } from "react";
 import SearchBarFallback from "@components/search/SearchBarFallback";
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
+  const { userId }: { userId: string | null } = auth();
+  if (userId) {
+    redirect("/dashboard");
+  }
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-between pt-6 gap-5">
       {/* <NavBar /> */}
       <Header />
       <HeaderBottom />
-      <Suspense fallback={<SearchBarFallback />}>
+      {/* <Suspense fallback={<SearchBarFallback />}>
         <HomeSearch />
       </Suspense>
 
@@ -27,7 +33,7 @@ export default async function Home() {
       <SuperVip />
       <VipPlus />
       <Vip />
-      <RecentlyCreatedWrapper />
+      <RecentlyCreatedWrapper /> */}
       <Footer />
       <Partners />
     </main>

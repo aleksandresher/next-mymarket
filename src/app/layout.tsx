@@ -6,6 +6,8 @@ import MainProvider from "./providers/SessionProvider";
 import { Toaster } from "../components/ui/toaster";
 import Footer from "@components/Footer";
 import Partners from "@components/Partners";
+import Nav from "@components/Nav";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,17 +23,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <ReactQueryProvider>
-          <MainProvider>
-            {children}
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <ReactQueryProvider>
+            <MainProvider>
+              <Nav />
+              {children}
 
-            <Toaster />
-          </MainProvider>
-        </ReactQueryProvider>
-      </body>
-    </html>
+              <Toaster />
+            </MainProvider>
+          </ReactQueryProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
 
