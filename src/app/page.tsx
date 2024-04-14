@@ -25,7 +25,7 @@ export default async function Home() {
       {/* <NavBar /> */}
       <Header />
       <HeaderBottom />
-      {/* <Suspense fallback={<SearchBarFallback />}>
+      <Suspense fallback={<SearchBarFallback />}>
         <HomeSearch />
       </Suspense>
 
@@ -33,7 +33,7 @@ export default async function Home() {
       <SuperVip />
       <VipPlus />
       <Vip />
-      <RecentlyCreatedWrapper /> */}
+      <RecentlyCreatedWrapper />
       <Footer />
       <Partners />
     </main>
