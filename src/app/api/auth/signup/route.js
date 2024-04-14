@@ -1,5 +1,5 @@
-import { connectToDB } from "@/utils/database";
 import Clerk from "../../../../../models/Clerk";
+import { connectToDB } from "../../../../utils/database";
 
 export const POST = async (request) => {
   const { username, lastname, email, password } = await request.json();

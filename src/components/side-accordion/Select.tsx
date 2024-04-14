@@ -24,8 +24,12 @@ export function SelectWrapper({
       </SelectTrigger>
       <SelectContent className="border-2 border-[#dcdee2] p-0 rounded-[4px]">
         <SelectGroup className="z-60 bg-white ">
-          {items?.map((item) => {
-            return <SelectItem value={item}>{item}</SelectItem>;
+          {items?.map((item, idx) => {
+            return (
+              <SelectItem value={item} key={idx}>
+                {item}
+              </SelectItem>
+            );
           })}
         </SelectGroup>
       </SelectContent>
