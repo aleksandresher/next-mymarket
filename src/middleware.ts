@@ -6,6 +6,7 @@ export default authMiddleware({
     "/api/:path*",
     "/api/webhooks/clerk",
     "/shop/[category]/[id]/:path*",
+    "/shop/:path*",
   ],
   apiRoutes: ["/api/dashboard(.*)"],
 });

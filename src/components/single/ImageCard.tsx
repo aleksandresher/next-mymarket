@@ -9,7 +9,9 @@ type Props = {
 export default function ImageCardSingle({ data }: Props) {
   return (
     <div className="relative">
-      <Image src={data?.image} width={300} height={300} alt="mobile" />
+      {data ? (
+        <Image src={data?.image} width={300} height={300} alt="mobile" />
+      ) : null}
       <div>
         {data?.vipplus ? (
           <div className="flex justify-center  w-[60px] rounded-[10px] bg-[#fb8500] absolute top-4 left-10 z-50">
