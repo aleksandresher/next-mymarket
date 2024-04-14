@@ -2,7 +2,7 @@ import Clerk from "../../../../../models/Clerk";
 import { connectToDB } from "../../../../utils/database";
 
 export const POST = async (request) => {
-  const { username, lastname, email, password } = await request.json();
+  const { username, lastname, email } = await request.json();
 
   try {
     await connectToDB();
@@ -11,7 +11,7 @@ export const POST = async (request) => {
       username: username,
       lastname: lastname,
       email: email,
-      password: password,
+      // password: password,
     });
     console.log(clerk);
     await clerk.save();

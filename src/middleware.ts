@@ -4,7 +4,7 @@ export default authMiddleware({
   publicRoutes: [
     "/",
     "/api/:path*",
-    "/api/webhooks/clerk",
+    "/api/webhooks(.*)",
     "/shop/[category]/[id]/:path*",
     "/shop/:path*",
   ],
