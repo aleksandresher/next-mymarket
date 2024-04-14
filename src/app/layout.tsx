@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "./providers/ReactQueryProvider";
-import MainProvider from "./providers/SessionProvider";
+
 import { Toaster } from "../components/ui/toaster";
 import Footer from "@components/Footer";
 import Partners from "@components/Partners";
@@ -27,12 +27,10 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <ReactQueryProvider>
-            <MainProvider>
-              <Nav />
-              {children}
+            <Nav />
+            {children}
 
-              <Toaster />
-            </MainProvider>
+            <Toaster />
           </ReactQueryProvider>
         </body>
       </html>

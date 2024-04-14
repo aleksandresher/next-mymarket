@@ -1,5 +1,5 @@
 import CategorySlide from "@components/categories/CategorySlide";
-import NavBar from "../components/navigation/NavBar";
+
 import CarouselWrapper from "@components/data-creators/carousel/Carousel";
 import VipPlus from "@components/vipes/vipplus/VipPlus";
 import Header from "@components/Header";
